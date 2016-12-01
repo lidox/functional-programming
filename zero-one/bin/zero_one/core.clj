@@ -111,7 +111,72 @@
 
 
 
+;; Praesenz05
+;; 5.1. d) 
+;; Lsg: 'Atome' haben bessere Performance als 'Refs'
 
+;; 5.2 Invarianten: Welche Probleme beinhaltet der Codesnippet?
+;; a) Lsg:
+
+;; b) Differenzieren im Do-Sync-block sorg für Konsistenz im Block
+;; Do Sync löst probleme bzgl. Refs
+
+;; 5.3 Intervalle
+;; LSG1 möglicherweise falsch, besser gucke LSG2
+(defn  intervals [c]
+   ((let [c (sort (set c))])
+  (reduce (fn [[a interval-start last-seen] e]
+            (if (= (inc last-seen) e)
+            [a intreval-start e]
+            [(conj a [interval-start last-seen]) e e]))
+            [[] (first c) (first c)]    
+         (rest c)))) 
+
+;; LSG 2
+(defn intervals [c]
+  (rest
+    (reverse
+      (reduce
+        (fn [[[a b] & r] e]
+          (if (= b (dec e))
+            (cons [a e] r)
+            ( --> r
+                  (cons [a b])
+                  (cons [e e]))))
+        []
+        (sort (set c))))))
+
+(intervals [10 9 8 8 1 2 3])
+;; output: ([1 3] [8 19])
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+;; erst collection sortieren
+;; dann REDUCE anwenden
+  
+(intervals [10 9 8 8 1 2 3])
+ 
+
+;; 5.4 Elemente entfernen
+(defn remove-all [c1 c2]
+  (loop [c c1
+         to-delete c2]
+    (if (seq to-delete)
+      (recur (remove #(= (first to-delete) %) c)
+             (rest to-delete))
+      c)))
+
+(remove-all (range 10) [7 8 9 10 11])
+      
 
 
 
