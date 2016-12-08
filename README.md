@@ -16,4 +16,4 @@ Now go to core.clj and create run configuration --> give a name --> apply and ru
 Next right click on cire.clj --> clojure --> load file in RAPL
 
 ## Intellij
-Check this [Plugin](https://cursive-ide.com/userguide)
+Check this [Plugin](https://cursive-ide.com/userguide and get [free non-commercial license](https://cursive-ide.com/buy.html)
