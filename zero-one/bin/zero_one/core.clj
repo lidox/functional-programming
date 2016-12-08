@@ -179,10 +179,23 @@
       
 
 
+;; 6.1 
+(defn all-paths [ls i]
+  (if (- (count ls) 1)
+    [[(nth (first ls) i)]]
+    map (partial cons (nth (first ls) i))
+    (into (all-paths (rest ls) i)
+          (all-paths (rest ls) (inc i)))))
 
+(defn path [ls]
+  (reduce min (map (partial apply +)
+                   (all-paths ls 0))))
 
-
-
+(path [
+       [1]
+      [2 4]
+     [5 1 4]
+    [2 3 4 5]] 0)
 
 
 
