@@ -43,3 +43,9 @@ nREPL server started on port 38550 on host 127.0.0.1
 Now mark a line or right-click on the file and select:
 
 REPL --> Load file in REPL / send '...' to REPL to execute the code.
+
+#### What is REPL?
+It's "just" a Clojure-Interpreter!
+
+#### What is CLOJURE? 
+It's a programming language and predominantly a functional programming language.
