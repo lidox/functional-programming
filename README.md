@@ -30,3 +30,16 @@ Create a clojure project and create a clojure file to put in following code.
 
 Create run configuration: RUN --> Edit Configurations.. --> '+' --> Clojure REPL --> LOCAL --> Apply (let all default)
 ![image](https://cloud.githubusercontent.com/assets/7879175/21004332/06fb77ce-bd30-11e6-895a-ac8591ddf30a.png)
+
+Now run your run-configuration.
+The REPL-Sever should start now showing something like that:
+```clojure
+Starting nREPL server...
+Connecting to local nREPL server...
+Clojure 1.8.0
+nREPL server started on port 38550 on host 127.0.0.1
+```
+
+Now mark a line or right-click on the file and select:
+
+REPL --> Load file in REPL / send '...' to REPL to execute the code.
