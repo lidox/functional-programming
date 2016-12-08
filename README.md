@@ -16,4 +16,17 @@ Now go to core.clj and create run configuration --> give a name --> apply and ru
 Next right click on cire.clj --> clojure --> load file in RAPL
 
 ## Intellij
-Check this [Plugin](https://cursive-ide.com/userguide) and get [free non-commercial license](https://cursive-ide.com/buy.html)
+
+#### Installation
+First check this [Plugin](https://cursive-ide.com/userguide) and get [free non-commercial license](https://cursive-ide.com/buy.html)
+
+#### Run example code
+Now make sure you can run your code.
+
+Create a clojure project and create a clojure file to put in following code.
+```clojure
+(get {:a 1 :b 2 [{}] 3} :a)
+```
+
+Create run configuration: RUN --> Edit Configurations.. --> '+' --> Clojure REPL --> LOCAL --> Apply (let all default)
+![image](https://cloud.githubusercontent.com/assets/7879175/21004332/06fb77ce-bd30-11e6-895a-ac8591ddf30a.png)
