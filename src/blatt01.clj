@@ -30,12 +30,52 @@
 
 (println "Aufgabe 1.2 b) Quadratzahlen: 1² 2² 3² 4² 5² 6² ... x², solange x² < 1000")
 (defn squere [x] (* x x))
-(defn my-filter [x] (< x 1001))
 (def squere-num (filter (fn [x] (< x 1001)) (map squere (range 0 101))))
 (println squere-num)
 
-(defn a [x] (* x x))
-;;(fn [x (* x x)])
+;;c) Definieren Sie die Sequenz, die alle Zahlen von 0 bis 1000 beinhaltet,
+;; die nicht durch 3 teilbar sind.
+(println "Aufgabe 1.2 c)")
+(def teilbar
+  (remove (fn [x] (zero? (mod x 3))) (range 0 1001) ))
+(println teilbar)
 
-(defn say [text] (println text))
-(say "muhaha")
+
+;; d) Definieren Sie die Sequenz, die alle Tupel [n, m] von ganzen Zahlen beinhaltet für die gilt:
+;; 0 < n < 1000 ∧ n 2 < m ∧ m ist minimal. Die Sequenz beginnt also mit [1,2], [2,5], [3,10], ...
+(println "Aufgabe 1.2 d)")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
