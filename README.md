@@ -44,6 +44,9 @@ Now mark a line or right-click on the file and select:
 
 REPL --> Load file in REPL / send '...' to REPL to execute the code.
 
+## Cheatsheet for Clojure
+You can find lot's of [information in the cheatsheet](http://clojure.org/api/cheatsheet)
+
 #### What is REPL?
 It's "just" a Clojure-Interpreter!
 
