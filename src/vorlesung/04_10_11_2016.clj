@@ -23,7 +23,7 @@
   ;;        seqable
 
   ;; => (2 3 4)
-  ;;    ^
+  ;;     ^
   ;;    seq
 
   ;; Wenn man eine Collection zu einem seq macht, verliert sie

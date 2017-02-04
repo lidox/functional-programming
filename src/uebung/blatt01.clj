@@ -33,6 +33,7 @@
 (def squere-num (filter (fn [x] (< x 1001)) (map squere (range 0 101))))
 (println squere-num)
 
+
 ;;c) Definieren Sie die Sequenz, die alle Zahlen von 0 bis 1000 beinhaltet,
 ;; die nicht durch 3 teilbar sind.
 (println "Aufgabe 1.2 c)")
@@ -40,6 +41,8 @@
   (remove (fn [x] (zero? (mod x 3))) (range 0 1001) ))
 (println teilbar)
 
+;; alternativ
+(def nichtdurch3teilbar (filter (fn [x] (not= 0 (mod x 3)))(range 1 1001)))
 
 ;; d) Definieren Sie die Sequenz, die alle Tupel [n, m] von ganzen Zahlen beinhaltet für die gilt:
 ;; 0 < n < 1000 ∧ n 2 < m ∧ m ist minimal. Die Sequenz beginnt also mit [1,2], [2,5], [3,10], ...
