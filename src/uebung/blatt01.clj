@@ -45,8 +45,28 @@
 (def nichtdurch3teilbar (filter (fn [x] (not= 0 (mod x 3)))(range 1 1001)))
 
 ;; d) Definieren Sie die Sequenz, die alle Tupel [n, m] von ganzen Zahlen beinhaltet für die gilt:
-;; 0 < n < 1000 ∧ n 2 < m ∧ m ist minimal. Die Sequenz beginnt also mit [1,2], [2,5], [3,10], ...
+;; 0 < n < 1000 ∧ n^2 < m ∧ m ist minimal. Die Sequenz beginnt also mit [1,2], [2,5], [3,10], ...
 (println "Aufgabe 1.2 d)")
+(def getSeq (for [x (range 1 1000)] [x (inc (* x x))]))
+
+;; e) Definieren Sie die Sequenz, die alle Zahlen mit genau 5 Ziffern (dargestellt als 5 Tupel), die
+;; ein Palindrom sind enthält, es soll außerdem gelten, dass die Ziffern bis zur mittleren Zahl
+;; strikt aufsteigend sind. [0 2 3 2 0] ist also Teil der Sequenz, aber nicht [0 3 2 3 0] oder [1 1 1 1 1].
+(def palindromTuple (for [x (range 0 10)
+                          y (range 0 10)
+                          z (range 0 10) :when (< x y z)]
+                      [x y z y x]))
+
+;; Aufgabe 1.3
+;; a) Schreiben Sie eine Funktion, die eine ganze Zahl z als Eingabe bekommt
+;; und eine Sequenz mit den ersten z Fibbonaccizahlen erzeugt.
+(reduce (fn [x empty] (conj x (+ (get x (- (count x) 1)) (get x (- (count x) 2)))))
+        [0 1] (range 7))
+
+
+
+
+
 
 
 
