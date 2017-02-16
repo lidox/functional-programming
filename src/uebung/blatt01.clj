@@ -1,4 +1,4 @@
- (ns blatt01)
+(ns blatt01)
 
  ;; Let's get ready toooo RUMBLE!!!
 
@@ -18,8 +18,8 @@
                                         ()
                                         {}
                                         #{}
-                                        ""
-                                        ]))
+                                        ""]))
+                                        
 
 ;; Aufgabe 1.2
 (def beispiel-seq (range -100 101))
@@ -28,17 +28,22 @@
 (def desc-seq (reverse (range -100 101)))
 (println desc-seq)
 
+;;b)
 (println "Aufgabe 1.2 b) Quadratzahlen: 1² 2² 3² 4² 5² 6² ... x², solange x² < 1000")
 (defn squere [x] (* x x))
 (def squere-num (filter (fn [x] (< x 1001)) (map squere (range 0 101))))
-(println squere-num)
 
+
+(def lower1000 (filter (fn [x] (< x 1000))))
+(lower1000 10)
+(range 1 10)
+(map lower1000 (range 11 13))
 
 ;;c) Definieren Sie die Sequenz, die alle Zahlen von 0 bis 1000 beinhaltet,
 ;; die nicht durch 3 teilbar sind.
 (println "Aufgabe 1.2 c)")
 (def teilbar
-  (remove (fn [x] (zero? (mod x 3))) (range 0 1001) ))
+  (remove (fn [x] (zero? (mod x 3))) (range 0 1001)))
 (println teilbar)
 
 ;; alternativ
@@ -59,37 +64,33 @@
 
 ;; Aufgabe 1.3
 ;; a) Schreiben Sie eine Funktion, die eine ganze Zahl z als Eingabe bekommt
-;; und eine Sequenz mit den ersten z Fibbonaccizahlen erzeugt.
+;; und eine Sequenz mit den ersten z Fibbonaccizahlen erzeugt
 (reduce (fn [x empty] (conj x (+ (get x (- (count x) 1)) (get x (- (count x) 2)))))
-        [0 1] (range 7))
+  [0 1] (range 7))
+
+; first try
+(defn fibo [n] (into [] (map + (range n))))
+(fibo 7)
+
+; working part
+(def fibo
+  ((fn fib [a b]
+     (lazy-seq (cons a (fib b (+ a b)))))
+   0 1))
+(take 30 fibo)
 
 
+; another recursive way
+(defn pos-nr 
+  ([] (pos-nr 1))
+  ([n] (lazy-seq (cons n (pos-nr (inc n))))))
+(take 4 (pos-nr))                  
 
+; boom baby
+(def fib-seq-cat
+  (lazy-cat [0 1] (map + (rest fib-seq-cat) fib-seq-cat)))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(take 7 fib-seq-cat)
 
 
 
